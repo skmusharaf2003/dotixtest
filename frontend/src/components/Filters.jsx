@@ -1,25 +1,35 @@
 export default function Filters({ setFilters }) {
     return (
-        <div className="flex gap-4 mb-4">
-            <select
-                className="border p-2 rounded"
-                onChange={(e) => setFilters(f => ({ ...f, status: e.target.value }))}
-            >
-                <option value="">All Status</option>
-                <option value="pending">Pending</option>
-                <option value="running">Running</option>
-                <option value="completed">Completed</option>
-            </select>
+        <div className="flex flex-wrap gap-3">
+            <div className="flex-1 min-w-[200px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Status
+                </label>
+                <select
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-shadow bg-white"
+                    onChange={(e) => setFilters(f => ({ ...f, status: e.target.value }))}
+                >
+                    <option value="">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="running">Running</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
 
-            <select
-                className="border p-2 rounded"
-                onChange={(e) => setFilters(f => ({ ...f, priority: e.target.value }))}
-            >
-                <option value="">All Priority</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
+            <div className="flex-1 min-w-[200px]">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Priority
+                </label>
+                <select
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-shadow bg-white"
+                    onChange={(e) => setFilters(f => ({ ...f, priority: e.target.value }))}
+                >
+                    <option value="">All Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
         </div>
     );
 }
